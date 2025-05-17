@@ -1,1 +1,0 @@
-# GracjanGoral.github.io
