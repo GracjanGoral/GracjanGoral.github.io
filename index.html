@@ -17,7 +17,7 @@
       overflow-x: hidden;
     }
     .container {
-      max-width: 720px;
+      max-width: 900px;
       margin: 56px auto 36px auto;
       padding: 32px;
       background: rgba(255,255,255,0.97);
@@ -41,21 +41,28 @@
       border: 3px solid #e0e7ef;
       background: #e6e8ec;
     }
-
     .subtitle {
       font-family: 'Inter', sans-serif;
-      font-size: 0.90rem;
+      font-size: 0.99rem;
       color: #98a2b3;
       margin-bottom: 1.1em;
       font-weight: 400;
       letter-spacing: 0.01em;
     }
-
     @media (max-width: 600px) {
-        .profile-photo {
-            width: 90px;
-            height: 90px;
-        }
+      .profile-photo {
+        width: 90px;
+        height: 90px;
+      }
+    }
+    .publication-card {
+      background: #f6faff;
+      border-left: 4px solid #c6e5fd;
+      border-radius: 13px;
+      box-shadow: 0 1.5px 6px rgba(60,60,70,0.04);
+      padding: 18px 20px 14px 20px;
+      margin-bottom: 25px;
+      margin-top: 0;
     }
     .main-intro {
       flex: 1;
@@ -80,12 +87,6 @@
       color: #374151;
       margin-bottom: 0.15em;
       margin-top: 1.2em;
-    }
-    .subtitle {
-      font-family: 'Inter', sans-serif;
-      font-size: 1.14rem;
-      color: #64748b;
-      margin-bottom: 1.1em;
     }
     p, li {
       font-size: 1.09rem;
@@ -138,6 +139,15 @@
       background: #f6faff;
       border-radius: 8px;
     }
+    .dataset-card {
+      background: #e6f0fa;
+      border-left: 4px solid #4092d8;
+      border-radius: 13px;
+      box-shadow: 0 1.5px 6px rgba(60,60,70,0.04);
+      padding: 18px 20px 14px 20px;
+      margin-bottom: 25px;
+      margin-top: 0;
+    }
     .film-grain {
       pointer-events: none;
       position: fixed;
@@ -148,6 +158,39 @@
       z-index: 1;
       background: url('https://grainy-gradients.vercel.app/noise.svg');
       mix-blend-mode: multiply;
+    }
+    .author-list {
+      font-size: 0.98em;
+      margin: 6px 0 10px 0;
+      color: #465169;
+    }
+    .author-me {
+      font-weight: 700;
+      color: #1566d6;
+      background: #e9f2fd;
+      border-radius: 5px;
+      padding: 0 4px;
+    }
+    .contact-links {
+      display: flex;
+      gap: 22px;
+      align-items: center;
+      justify-content: center;
+      margin-top: 8px;
+      margin-bottom: 8px;
+    }
+    .contact-icon {
+      width: 26px;
+      height: 26px;
+      vertical-align: middle;
+      transition: opacity 0.15s, transform 0.15s;
+      opacity: 0.82;
+      fill: #111b36;
+    }
+    .contact-link:hover .contact-icon {
+      opacity: 1;
+      transform: scale(1.11);
+      fill: #1566d6;
     }
     @media (max-width: 600px) {
       .container {
@@ -180,7 +223,31 @@
   <div class="film-grain"></div>
   <div class="container">
     <div class="profile-header">
-      <img src="gracjan_goral.jpg" alt="Your photo" class="profile-photo">
+      <div style="display: flex; flex-direction: column; align-items: center;">
+        <img src="your-photo.jpg" alt="Your photo" class="profile-photo">
+        <div class="contact-links">
+          <a class="contact-link" href="https://x.com/gracjan_goral" target="_blank" title="X (Twitter)">
+            <svg class="contact-icon" viewBox="0 0 32 32">
+              <path d="M19.89 14.18 28.77 4.5h-2.18l-7.62 8.77-6.07-8.77H3.41l9.31 13.42-9.31 10.59h2.18l8-9.11 6.32 9.11h9.49zm-2.76 3.15-.92-1.33-7.38-10.67h2.86l5.92 8.56.92 1.33 7.62 11.06h-2.86z"></path>
+            </svg>
+          </a>
+          <a class="contact-link" href="https://www.linkedin.com/in/gracjan-goral/" target="_blank" title="LinkedIn">
+            <svg class="contact-icon" viewBox="0 0 32 32">
+              <rect x="5" y="5" width="22" height="22" rx="4" fill="#fff" stroke="#111b36" stroke-width="1.6"/>
+              <path d="M12.5 13v7.5" stroke="#1566d6" stroke-width="1.7" stroke-linecap="round"/>
+              <circle cx="12.5" cy="10.5" r="1.1" fill="#1566d6"/>
+              <path d="M17 16.1v-1.2c0-1 .7-1.7 1.8-1.7s2 1 2 2.4v5" stroke="#1566d6" stroke-width="1.7" stroke-linecap="round"/>
+              <path d="M17 20.5v-2.8" stroke="#1566d6" stroke-width="1.7" stroke-linecap="round"/>
+            </svg>
+          </a>
+          <a class="contact-link" href="mailto:gp.goral@uw.edu.pl" title="Email">
+            <svg class="contact-icon" viewBox="0 0 32 32">
+              <rect width="28" height="20" x="2" y="6" rx="3" fill="#fff" stroke="#111b36" stroke-width="1.6"/>
+              <polyline points="4,8 16,19 28,8" fill="none" stroke="#1566d6" stroke-width="1.6"/>
+            </svg>
+          </a>
+        </div>
+      </div>
       <div class="main-intro">
         <h1>Knows everything… except the language.</h1>
         <div class="subtitle">
@@ -202,45 +269,75 @@
       <img src="cat5.jpg" alt="Cat 5" class="cat-photo">
     </div>
     <p>
-      I am fascinated by the intersection of psychology and AI. In particular, I apply psychological frameworks and experimental paradigms to study, challenge, and sometimes surprise artificial models. I believe that, much like humans, AI can only be understood when we ask the right questions.
+      I am fascinated by the intersection of psychology and AI. In particular, I apply psychological frameworks and experimental paradigms to study, challenge, and sometimes surprise artificial models.
     </p>
-    <p>
-      Always open to collaboration, thoughtful discussions, or a debate about the best way to measure perspective-taking.
-    </p>
-
     <h2>Publications</h2>
-
     <h3>LLMs</h3>
-    <b>Wait, That’s Not an Option: LLMs Robustness with In-correct Multiple-Choice Options</b><br>
-    <i>Explores LLMs' capability to detect incorrect multiple-choice options, revealing a 55% performance drop.</i><br>
-    <a href="https://arxiv.org/abs/2409.00113" target="_blank">arXiv</a> |
-    <a href="https://sites.google.com/view/reflective-jugment/strona-g%C5%82%C3%B3wna" target="_blank">Project Website</a>
-    <br>
-    <small><i>Accepted at The 63rd Annual Meeting of the Association for Computational Linguistics.</i></small>
-
-    <h3>VLMs</h3>
-    <b>Seeing Through Their Eyes: Evaluating Visual Perspective Taking in Vision Language Models</b><br>
-    <i>Investigates VLMs' perspective-taking abilities, benchmarking 12 models.</i><br>
-    <a href="https://www.arxiv.org/abs/2409.12969" target="_blank">arXiv</a> |
-    <a href="https://sites.google.com/view/perspective-taking/strona-g%C5%82%C3%B3wna" target="_blank">Project Website</a>
-    <br>
-    <small><i>Accepted at NeurIPS 2024 (Workshop on Responsibly Building the Next Generation of Multimodal Foundational Models)</i></small>
-    <br><br>
-    <b>Beyond Recognition: Evaluating Visual Perspective Taking in Vision Language Models</b><br>
-    <i>Investigates VLMs' perspective-taking abilities.</i><br>
-    <a href="https://arxiv.org/abs/2505.03821" target="_blank">arXiv</a>
-
-    <h3>Planning</h3>
-    <b>What Matters in Hierarchical Search for Combinatorial Reasoning Problems?</b><br>
-    <i>Analyzes subgoal-planning effectiveness in combinatorial reasoning problems.</i><br>
-    <a href="https://arxiv.org/abs/2406.03361" target="_blank">arXiv</a> | Project Website: <i>Coming soon</i>
-    <br>
-    <small><i>Accepted at ICLR 2024 (Generative Models for Decision Making Workshop)</i></small>
-
+    <div class="publication-card">
+      <b>Wait, That’s Not an Option: LLMs Robustness with In-correct Multiple-Choice Options</b><br>
+      <div class="author-list">
+        <span class="author-me">Gracjan Góral</span>, Emilia Wiśnios, Piotr Sankowski, Paweł Budzianowski
+      </div>
+      <i>Explores LLMs' threshold between following instruction and accuracy.</i><br>
+      <a href="https://arxiv.org/abs/2409.00113" target="_blank">arXiv</a> |
+      <a href="https://sites.google.com/view/reflective-jugment/strona-g%C5%82%C3%B3wna" target="_blank">Project Website</a>
+      <br>
+      <small><i>Accepted at The 63rd Annual Meeting of the Association for Computational Linguistics</i></small>
+    </div>
+    <div class="publication-card">
+      <b>Seeing Through Their Eyes: Evaluating Visual Perspective Taking in Vision Language Models</b><br>
+      <div class="author-list">
+        <span class="author-me">Gracjan Góral</span>, Alicja Ziarko, Michal Nauman, Maciej Wołczyk
+      </div>
+      <i>Investigates VLMs' perspective-taking abilities, benchmarking 12 models.</i><br>
+      <a href="https://www.arxiv.org/abs/2409.12969" target="_blank">arXiv</a> |
+      <a href="https://sites.google.com/view/perspective-taking/strona-g%C5%82%C3%B3wna" target="_blank">Project Website</a>
+      <br>
+      <small><i>Accepted at NeurIPS 2024 (Workshop on Responsibly Building the Next Generation of Multimodal Foundational Models)</i></small>
+    </div>
+    <div class="publication-card">
+      <b>Beyond Recognition: Evaluating Visual Perspective Taking in Vision Language Models</b><br>
+      <div class="author-list">
+        <span class="author-me">Gracjan Góral</span>, Alicja Ziarko, Piotr Miłoś, Michał Nauman, Maciej Wołczyk, Michał Kosiński
+      </div>
+      <i>Evaluates VLMs’ performance on controlled perspective-taking tasks, finding strong scene understanding but lower accuracy on spatial reasoning and visual perspective taking.</i><br>
+      <a href="https://arxiv.org/abs/2505.03821" target="_blank">arXiv</a> | Project Website: <i>Coming soon</i>
+      <br>
+      <small><i>Submitted</i></small>
+    </div>
+    <div class="publication-card">
+      <b>What Matters in Hierarchical Search for Combinatorial Reasoning Problems?</b><br>
+      <div class="author-list">
+        Michał Zawalski, <span class="author-me">Gracjan Góral</span>, Michał Tyrolski, Emilia Wiśnios, Franciszek Budrowski, Marek Cygan, Łukasz Kuciński, Piotr Miłoś
+      </div>
+      <i>Analyzes subgoal-planning effectiveness in combinatorial reasoning problems.</i><br>
+      <a href="https://arxiv.org/abs/2406.03361" target="_blank">arXiv</a> | Project Website: <i>Coming soon</i>
+      <br>
+      <small><i>Accepted at ICLR 2024 (Generative Models for Decision Making Workshop)</i></small>
+    </div>
+    <h2>Datasets</h2>
+    <div class="dataset-card">
+      <b>
+        <a href="https://huggingface.co/datasets/Gracjan/Isle" target="_blank">The Isle (I spy with my little eye)</a>
+        <span style="font-size:0.98em; color:#49638f; font-weight:400;"></span>
+      </b>
+      <br>
+      <span style="font-size:1.01em;">
+        The Isle dataset enables research on visual perspective taking, scene understanding, and spatial reasoning, with over 4k downloads.
+      </span>
+    </div>
+    <div class="dataset-card">
+      <b>
+        <a href="https://huggingface.co/datasets/Gracjan/BlenderGaze" target="_blank">The BlenderGaze</a>
+      </b>
+      <br>
+      <span style="font-size:1.01em;">
+        The BlenderGaze expands the Isle dataset in scale to further investigate visual perspective taking in VLMs.
+      </span>
+    </div>
     <blockquote>
       Feel free to connect for collaborative research, thoughtful discussions in AI, or sharing cat stories.
     </blockquote>
   </div>
 </body>
 </html>
-
