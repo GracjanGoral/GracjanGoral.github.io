@@ -4,25 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Gracjan Góral | AI & Research</title>
-  <!-- Apple‑like typography & smoothness -->
+  <!-- Apple‑inspired smooth style -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Zen+Maru+Gothic:wght@500&display=swap" rel="stylesheet">
   <style>
-    /* -------------------------------------------------- */
-    /* Base layout & typography – inspired by apple.com   */
-    /* -------------------------------------------------- */
     :root{
       --bg-page:#f5f7fa;
       --bg-surface:#ffffff;
       --text-primary:#1d1d1f;
       --text-secondary:#6e6e73;
-      --accent:#0071e3;           /* Apple blue */
-      --radius-xl:28px;           /* large round corners */
+      --accent:#0071e3;             /* consistent blue */
+      --radius-xl:28px;
       --radius-md:16px;
       --shadow-lg:0 16px 40px rgba(0,0,0,0.06);
       --shadow-sm:0 2px 6px rgba(0,0,0,0.04);
     }
     *,*::before,*::after{box-sizing:border-box;}
-
     body{
       margin:0;
       font-family:-apple-system,BlinkMacSystemFont,'Inter','Zen Maru Gothic',sans-serif;
@@ -31,75 +27,46 @@
       -webkit-font-smoothing:antialiased;
     }
     a{color:var(--accent);text-decoration:none;position:relative;}
-    a::after{content:"";position:absolute;left:0;bottom:0;width:100%;height:1px;background:currentColor;opacity:.35;transition:opacity .2s;}
+    a::after{content:"";position:absolute;left:0;bottom:-1px;width:100%;height:1px;background:currentColor;opacity:.35;transition:opacity .2s;}
     a:hover::after{opacity:.8;}
 
-    /* ----------------- Container ----------------- */
-    .container{
-      max-width:980px;
-      margin:64px auto;
-      padding:40px 48px;
-      background:var(--bg-surface);
-      border-radius:var(--radius-xl);
-      box-shadow:var(--shadow-lg);
-    }
+    /* ---------------- Container ---------------- */
+    .container{max-width:980px;margin:64px auto;padding:40px 48px;background:var(--bg-surface);border-radius:var(--radius-xl);box-shadow:var(--shadow-lg);}
 
-    /* ----------------- Header -------------------- */
+    /* ---------------- Header ------------------ */
     .profile-header{display:flex;gap:32px;align-items:center;margin-bottom:40px;flex-wrap:wrap;}
-    .profile-photo{
-      width:180px;height:180px;object-fit:cover;
-      border-radius:var(--radius-xl);
-      box-shadow:var(--shadow-sm);
-      border:2px solid #e5e5ea;
-      flex-shrink:0;
-    }
-    h1{font-size:2.4rem;font-weight:700;margin:0 0 0.3em;letter-spacing:-.015em;line-height:1.15;}
-    .subtitle{font-size:1.05rem;color:var(--text-secondary);}
+    .profile-photo{width:180px;height:180px;object-fit:cover;border-radius:var(--radius-xl);box-shadow:var(--shadow-sm);border:3px solid var(--accent);flex-shrink:0;}
+    h1{font-size:2.4rem;font-weight:700;margin:0 0 .3em;letter-spacing:-.015em;line-height:1.15;}
+    .subtitle{font-size:1.05rem;color:var(--text-secondary);}   
 
-    /* ----------------- Text ---------------------- */
+    /* ---------------- Contact icons ----------- */
+    .contact-links{display:flex;gap:24px;align-items:center;margin-top:18px;}
+    .contact-icon{width:26px;height:26px;fill:var(--text-primary);opacity:.8;transition:transform .2s,opacity .2s,fill .2s;vertical-align:middle;}
+    .contact-link:hover .contact-icon{transform:scale(1.1);opacity:1;fill:var(--accent);}   
+
+    /* ---------------- Typography -------------- */
     p{font-size:1.15rem;line-height:1.75;margin:1.25em 0;}
     h2{font-size:1.5rem;font-weight:600;margin:2.8rem 0 1.2rem;letter-spacing:-.01em;}
-    h3{font-size:1.15rem;font-weight:600;margin:1.6rem 0 .5rem;color:var(--text-primary);}
+    h3{font-size:1.15rem;font-weight:600;margin:1.6rem 0 .5rem;color:var(--text-primary);}   
 
-    /* ----------------- Card component ------------ */
-    .card{
-      background:var(--bg-surface);
-      border-radius:var(--radius-md);
-      padding:22px 26px 20px;
-      box-shadow:var(--shadow-sm);
-      margin-bottom:28px;
-    }
+    /* ---------------- Card component ---------- */
+    .card{background:var(--bg-surface);border-radius:var(--radius-md);padding:22px 26px 20px;box-shadow:var(--shadow-sm);margin-bottom:28px;}
     .card .author-list{font-size:.95rem;color:var(--text-secondary);margin:6px 0 10px;}
     .author-me{font-weight:700;color:var(--accent);background:#eaf4ff;border-radius:4px;padding:0 4px;}
-
-    /* Section specific light tints */
     .card.pub{border-top:6px solid #9adaff4d;}
     .card.data{border-top:6px solid #b3d4ff4d;}
     .card.blog{border-top:6px solid #c4dfff4d;}
 
-    /* ----------------- Cats gallery -------------- */
+    /* ---------------- Cats gallery ------------ */
     .cats-gallery{display:flex;gap:24px;flex-wrap:wrap;justify-content:center;margin:24px 0 38px;}
-    .cat-photo{
-      width:120px;height:120px;object-fit:cover;
-      border-radius:var(--radius-md);
-      box-shadow:var(--shadow-sm);
-      cursor:pointer;transition:transform .25s;
-    }
-    .cat-photo:hover{transform:scale(1.06);}
+    .cat-photo{width:120px;height:120px;object-fit:cover;border-radius:var(--radius-md);box-shadow:var(--shadow-sm);cursor:pointer;transition:transform .25s;border:3px solid var(--accent);}   
+    .cat-photo:hover{transform:scale(1.06);} 
     .cat-photo.zoomed{transform:scale(2);z-index:20;}
 
-    /* ----------------- Blockquote --------------- */
-    blockquote{
-      margin:2.4rem 0;
-      padding:1.2rem 1.4rem;
-      background:#f0f4ff;
-      border-left:4px solid var(--accent);
-      border-radius:var(--radius-md);
-      color:var(--text-secondary);
-      font-style:italic;
-    }
+    /* --------------- Blockquote -------------- */
+    blockquote{margin:2.4rem 0;padding:1.2rem 1.4rem;background:#f0f4ff;border-left:4px solid var(--accent);border-radius:var(--radius-md);color:var(--text-secondary);font-style:italic;}
 
-    /* Responsive tweaks */
+    /* -------------- Responsive --------------- */
     @media(max-width:700px){
       .container{padding:24px;}
       .profile-photo{width:120px;height:120px;}
@@ -110,16 +77,36 @@
   </style>
 </head>
 <body>
-  <!-- Noise overlay (very subtle) -->
+  <!-- Subtle grain overlay -->
   <div style="pointer-events:none;position:fixed;inset:0;width:100%;height:100%;background:url('https://grainy-gradients.vercel.app/noise.svg');mix-blend-mode:overlay;opacity:.04;z-index:0"></div>
 
   <div class="container">
-    <!-- ------------ Profile header ------------- -->
+    <!-- ----------- Profile header ----------- -->
     <div class="profile-header">
       <img src="gracjan_goral.jpg" alt="Gracjan Góral" class="profile-photo">
       <div>
         <h1>Knows everything… except the language.</h1>
         <div class="subtitle">PhD candidate · University of Warsaw · Artificial Intelligence · Mathematics</div>
+        <div class="contact-links">
+          <a class="contact-link" href="https://x.com/gracjan_goral" target="_blank" title="X (Twitter)">
+            <svg class="contact-icon" viewBox="0 0 32 32"><path d="M19.89 14.18 28.77 4.5h-2.18l-7.62 8.77-6.07-8.77H3.41l9.31 13.42-9.31 10.59h2.18l8-9.11 6.32 9.11h9.49zm-2.76 3.15-.92-1.33-7.38-10.67h2.86l5.92 8.56.92 1.33 7.62 11.06h-2.86z"></path></svg>
+          </a>
+          <a class="contact-link" href="https://www.linkedin.com/in/gracjan-goral/" target="_blank" title="LinkedIn">
+            <svg class="contact-icon" viewBox="0 0 32 32">
+              <rect x="5" y="5" width="22" height="22" rx="4" fill="currentColor" stroke="none"/>
+              <path d="M12.5 13v7.5" stroke="#fff" stroke-width="1.7" stroke-linecap="round"/>
+              <circle cx="12.5" cy="10.5" r="1.1" fill="#fff"/>
+              <path d="M17 16.1v-1.2c0-1 .7-1.7 1.8-1.7s2 1 2 2.4v5" stroke="#fff" stroke-width="1.7" stroke-linecap="round"/>
+              <path d="M17 20.5v-2.8" stroke="#fff" stroke-width="1.7" stroke-linecap="round"/>
+            </svg>
+          </a>
+          <a class="contact-link" href="mailto:gp.goral@uw.edu.pl" title="Email">
+            <svg class="contact-icon" viewBox="0 0 32 32">
+              <rect width="28" height="20" x="2" y="6" rx="3" fill="currentColor" stroke="none"/>
+              <polyline points="4,8 16,19 28,8" fill="none" stroke="#fff" stroke-width="1.6"/>
+            </svg>
+          </a>
+        </div>
       </div>
     </div>
 
@@ -137,16 +124,14 @@
 
     <p>I am fascinated by the intersection of psychology and AI. In particular, I apply psychological frameworks and experimental paradigms to study, challenge, and sometimes surprise artificial models.</p>
 
-    <!-- Publications -------------------------------------------------------- -->
+    <!-- Publications -->
     <h2>Publications</h2>
-
     <h3>LLMs</h3>
     <div class="card pub">
-      <b>Wait, That’s Not an Option: LLMs Robustness with In‑correct Multiple‑Choice Options</b><br>
+      <b>Wait, That’s Not an Option: LLMs Robustness with In-correct Multiple-Choice Options</b><br>
       <div class="author-list"><span class="author-me">Gracjan Góral</span>, Emilia Wiśnios, Piotr Sankowski, Paweł Budzianowski</div>
       <i>Explores LLMs' threshold between following instruction and accuracy.</i><br>
-      <a href="https://arxiv.org/abs/2409.00113" target="_blank">arXiv</a> ·
-      <a href="https://sites.google.com/view/reflective-jugment/strona-główna" target="_blank">Project Website</a><br>
+      <a href="https://arxiv.org/abs/2409.00113" target="_blank">arXiv</a> · <a href="https://sites.google.com/view/reflective-jugment/strona-główna" target="_blank">Project Website</a><br>
       <small><i>Accepted at The 63rd Annual Meeting of the Association for Computational Linguistics</i></small>
     </div>
 
@@ -154,16 +139,15 @@
     <div class="card pub">
       <b>Seeing Through Their Eyes: Evaluating Visual Perspective Taking in Vision Language Models</b><br>
       <div class="author-list"><span class="author-me">Gracjan Góral</span>, Alicja Ziarko, Michal Nauman, Maciej Wołczyk</div>
-      <i>Investigates VLMs' perspective‑taking abilities, benchmarking 12 models.</i><br>
-      <a href="https://arxiv.org/abs/2409.12969" target="_blank">arXiv</a> ·
-      <a href="https://sites.google.com/view/perspective-taking/strona-główna" target="_blank">Project Website</a><br>
-      <small><i>Accepted at NeurIPS 2024 (Responsibly Building the Next Generation… Workshop)</i></small>
+      <i>Investigates VLMs' perspective-taking abilities, benchmarking 12 models.</i><br>
+      <a href="https://arxiv.org/abs/2409.12969" target="_blank">arXiv</a> · <a href="https://sites.google.com/view/perspective-taking/strona-główna" target="_blank">Project Website</a><br>
+      <small><i>Accepted at Workshop on Responsibly Building the Next Generation of Multimodal Foundational Models, NeurIPS 2024</i></small>
     </div>
 
     <div class="card pub">
       <b>Beyond Recognition: Evaluating Visual Perspective Taking in Vision Language Models</b><br>
       <div class="author-list"><span class="author-me">Gracjan Góral</span>, Alicja Ziarko, Piotr Miłoś, Michał Nauman, Maciej Wołczyk, Michał Kosiński</div>
-      <i>Evaluates VLMs’ performance on controlled perspective‑taking tasks, finding strong scene understanding but lower accuracy on spatial reasoning and VPT.</i><br>
+      <i>Evaluates VLMs’ performance on controlled perspective-taking tasks, finding strong scene understanding but lower accuracy on spatial reasoning and VPT.</i><br>
       <a href="https://arxiv.org/abs/2505.03821" target="_blank">arXiv</a> · Project Website: <i>Coming soon</i><br>
       <small><i>Submitted</i></small>
     </div>
@@ -172,43 +156,25 @@
     <div class="card pub">
       <b>What Matters in Hierarchical Search for Combinatorial Reasoning Problems?</b><br>
       <div class="author-list">Michał Zawalski, <span class="author-me">Gracjan Góral</span>, Michał Tyrolski, Emilia Wiśnios, Franciszek Budrowski, Marek Cygan, Łukasz Kuciński, Piotr Miłoś</div>
-      <i>Analyzes subgoal‑planning effectiveness in combinatorial reasoning problems.</i><br>
+      <i>Analyzes subgoal-planning effectiveness in combinatorial reasoning problems.</i><br>
       <a href="https://arxiv.org/abs/2406.03361" target="_blank">arXiv</a> · Project Website: <i>Coming soon</i><br>
-      <small><i>Accepted at ICLR 2024 (Generative Models for Decision Making Workshop)</i></small>
+      <small><i>Accepted at Generative Models for Decision Making Workshop, ICLR 2024</i></small>
     </div>
 
-    <!-- Datasets ------------------------------------------------------------ -->
+    <!-- Datasets -->
     <h2>Datasets</h2>
-
     <div class="card data">
       <b><a href="https://huggingface.co/datasets/Gracjan/Isle" target="_blank">The Isle (I spy with my little eye)</a></b><br>
       <span>The Isle dataset enables research on visual perspective taking, scene understanding, and spatial reasoning, with over 4k downloads.</span>
     </div>
-
     <div class="card data">
       <b><a href="https://huggingface.co/datasets/Gracjan/BlenderGaze" target="_blank">BlenderGaze</a></b><br>
       <span>The BlenderGaze expands the Isle dataset in scale to further investigate visual perspective taking in VLMs.</span>
     </div>
 
-    <!-- Blog Posts ---------------------------------------------------------- -->
+    <!-- Blog Posts -->
     <h2>Blog Posts</h2>
-
     <div class="card blog">
       <b><a href="https://medium.com/p/3aecd6180fa5" target="_blank">Building Trust With Invisible Robots</a></b><br>
       <div class="author-list"><span class="author-me">Gracjan Góral</span></div>
-      <i>From domestic humanoids to the open‑source <b>BlenderGaze</b> dataset: exploring visual perspective taking and safety considerations for "invisible" robots.</i>
-    </div>
-
-    <blockquote>Feel free to connect for collaborative research, thoughtful discussions in AI, or sharing cat stories.</blockquote>
-  </div>
-
-  <script>
-    // Cat image zoom toggle
-    document.addEventListener('DOMContentLoaded',()=>{
-      document.querySelectorAll('.cat-photo').forEach(img=>{
-        img.addEventListener('click',()=>img.classList.toggle('zoomed'));
-      });
-    });
-  </script>
-</body>
-</html>
+      <i>From domestic humanoids to the open-source <
