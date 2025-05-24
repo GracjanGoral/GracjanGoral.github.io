@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Gracjan Góral | AI & Research</title>
-  <!-- Apple‑inspired smooth style -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Zen+Maru+Gothic:wght@500&display=swap" rel="stylesheet">
   <style>
     :root{
@@ -12,7 +11,7 @@
       --bg-surface:#ffffff;
       --text-primary:#1d1d1f;
       --text-secondary:#6e6e73;
-      --accent:#0071e3;             /* consistent blue */
+      --accent:#0071e3; /* consistent blue */
       --radius-xl:28px;
       --radius-md:16px;
       --shadow-lg:0 16px 40px rgba(0,0,0,0.06);
@@ -37,17 +36,17 @@
     .profile-header{margin-bottom:40px;} .profile-header::after{content:"";display:block;clear:both;}
     .profile-photo{width:180px;height:180px;object-fit:cover;border-radius:var(--radius-xl);box-shadow:var(--shadow-sm);border:3px solid #c6e5fd;float:left;margin-right:32px;margin-bottom:12px;}
     h1{font-size:2.4rem;font-weight:700;margin:0 0 .3em;letter-spacing:-.015em;line-height:1.15;}
-    .subtitle{font-size:1.05rem;color:var(--text-secondary);}   
+    .subtitle{font-size:1.05rem;color:var(--text-secondary);}
 
     /* ---------------- Contact icons ----------- */
     .contact-links{display:flex;gap:24px;align-items:center;margin-top:18px;}
     .contact-icon{width:26px;height:26px;fill:var(--text-primary);opacity:.8;transition:transform .2s,opacity .2s,fill .2s;vertical-align:middle;}
-    .contact-link:hover .contact-icon{transform:scale(1.1);opacity:1;fill:var(--accent);}   
+    .contact-link:hover .contact-icon{transform:scale(1.1);opacity:1;fill:var(--accent);}
 
     /* ---------------- Typography -------------- */
     p{font-size:1.15rem;line-height:1.75;margin:1.25em 0;}
     h2{font-size:1.5rem;font-weight:600;margin:2.8rem 0 1.2rem;letter-spacing:-.01em;}
-    h3{font-size:1.15rem;font-weight:600;margin:1.6rem 0 .5rem;color:var(--text-primary);}   
+    h3{font-size:1.15rem;font-weight:600;margin:1.6rem 0 .5rem;color:var(--text-primary);}
 
     /* ---------------- Card component ---------- */
     .card{background:var(--bg-surface);border-radius:var(--radius-md);padding:22px 26px 20px;box-shadow:var(--shadow-sm);margin-bottom:28px;}
@@ -59,9 +58,13 @@
 
     /* ---------------- Cats gallery ------------ */
     .cats-gallery{display:flex;gap:24px;flex-wrap:wrap;justify-content:center;margin:24px 0 38px;}
-    .cat-photo{width:120px;height:120px;object-fit:cover;border-radius:var(--radius-md);box-shadow:var(--shadow-sm);cursor:pointer;transition:transform .25s;border:3px solid #c6e5fd;}   
-    .cat-photo:hover{transform:scale(1.06);} 
-    .cat-photo.zoomed{transform:scale(2);z-index:20;}
+    .cat-photo{width:120px;height:120px;object-fit:cover;border-radius:var(--radius-md);box-shadow:var(--shadow-sm);cursor:pointer;transition:transform .25s;border:3px solid #c6e5fd;}
+    .cat-photo:hover{transform:scale(1.06);}
+    .cat-photo.zoomed{
+      transform:scale(3); /* UPDATED */
+      z-index:20;
+      position: relative; /* Added for better stacking context if needed */
+    }
 
     /* --------------- Blockquote -------------- */
     blockquote{margin:2.4rem 0;padding:1.2rem 1.4rem;background:#f0f4ff;border-left:4px solid var(--accent);border-radius:var(--radius-md);color:var(--text-secondary);font-style:italic;}
@@ -77,15 +80,13 @@
   </style>
 </head>
 <body>
-  <!-- Subtle grain overlay -->
   <div style="pointer-events:none;position:fixed;inset:0;width:100%;height:100%;background:url('https://grainy-gradients.vercel.app/noise.svg');mix-blend-mode:overlay;opacity:.04;z-index:0"></div>
 
   <div class="container">
-    <!-- ----------- Profile header ----------- -->
     <div class="profile-header">
       <img src="gracjan_goral.jpg" alt="Gracjan Góral" class="profile-photo">
       <div>
-        <h1>Knows everything… except the language.</h1>
+        <h1>Knows everything… except the  /ˈlæŋ.ɡwɪdʒ/</h1>
         <div class="subtitle">PhD candidate · University of Warsaw · Artificial Intelligence · Mathematics</div>
         <div class="contact-links">
           <a class="contact-link" href="https://x.com/gracjan_goral" target="_blank" title="X (Twitter)">
@@ -113,7 +114,6 @@
     <p>Former math student, now exploring the boundaries between mathematics, artificial intelligence, and language. My work focuses on language models and their ability to reason, reflect, and sometimes hallucinate.</p>
     <p>My research is rarely done alone – I share my home office with five cats ("the demons"), who are convinced every keyboard was made for them.</p>
 
-    <!-- Cats gallery -->
     <div class="cats-gallery">
       <img src="cat1.jpg" alt="Cat 1" class="cat-photo">
       <img src="cat2.jpg" alt="Cat 2" class="cat-photo">
@@ -124,7 +124,6 @@
 
     <p>I am fascinated by the intersection of psychology and AI. In particular, I apply psychological frameworks and experimental paradigms to study, challenge, and sometimes surprise artificial models.</p>
 
-    <!-- Publications -->
     <h2>Publications</h2>
     <h3>LLMs</h3>
     <div class="card pub">
@@ -161,7 +160,6 @@
       <small><i>Accepted at Generative Models for Decision Making Workshop, ICLR 2024</i></small>
     </div>
 
-    <!-- Datasets -->
     <h2>Datasets</h2>
     <div class="card data">
       <b><a href="https://huggingface.co/datasets/Gracjan/Isle" target="_blank">The Isle (I spy with my little eye)</a></b><br>
@@ -172,9 +170,43 @@
       <span>The BlenderGaze expands the Isle dataset in scale to further investigate visual perspective taking in VLMs.</span>
     </div>
 
-    <!-- Blog Posts -->
     <h2>Blog Posts</h2>
     <div class="card blog">
       <b><a href="https://medium.com/p/3aecd6180fa5" target="_blank">Building Trust With Invisible Robots</a></b><br>
       <div class="author-list"><span class="author-me">Gracjan Góral</span></div>
-      <i>From domestic humanoids to the open-source <
+      <i>From domestic humanoids to the open-source.</i>
+    </div>
+  </div> <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const catPhotos = document.querySelectorAll('.cat-photo');
+      let currentlyZoomed = null;
+
+      catPhotos.forEach(photo => {
+        photo.addEventListener('click', function(event) {
+          event.stopPropagation(); // Prevent click from immediately bubbling to document
+          if (this.classList.contains('zoomed')) {
+            this.classList.remove('zoomed');
+            currentlyZoomed = null;
+          } else {
+            // If another image is zoomed, unzoom it first
+            if (currentlyZoomed) {
+              currentlyZoomed.classList.remove('zoomed');
+            }
+            this.classList.add('zoomed');
+            currentlyZoomed = this;
+          }
+        });
+      });
+
+      // Click anywhere else to unzoom
+      document.addEventListener('click', function() {
+        if (currentlyZoomed) {
+          currentlyZoomed.classList.remove('zoomed');
+          currentlyZoomed = null;
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
