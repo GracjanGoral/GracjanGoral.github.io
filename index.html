@@ -34,8 +34,8 @@
     .container{max-width:980px;margin:64px auto;padding:40px 48px;background:var(--bg-surface);border-radius:var(--radius-xl);box-shadow:var(--shadow-lg);}
 
     /* ---------------- Header ------------------ */
-    .profile-header{display:flex;gap:32px;align-items:center;margin-bottom:40px;flex-wrap:wrap;}
-    .profile-photo{width:180px;height:180px;object-fit:cover;border-radius:var(--radius-xl);box-shadow:var(--shadow-sm);border:3px solid var(--accent);flex-shrink:0;}
+    .profile-header{margin-bottom:40px;} .profile-header::after{content:"";display:block;clear:both;}
+    .profile-photo{width:180px;height:180px;object-fit:cover;border-radius:var(--radius-xl);box-shadow:var(--shadow-sm);border:3px solid #c6e5fd;float:left;margin-right:32px;margin-bottom:12px;}
     h1{font-size:2.4rem;font-weight:700;margin:0 0 .3em;letter-spacing:-.015em;line-height:1.15;}
     .subtitle{font-size:1.05rem;color:var(--text-secondary);}   
 
@@ -59,7 +59,7 @@
 
     /* ---------------- Cats gallery ------------ */
     .cats-gallery{display:flex;gap:24px;flex-wrap:wrap;justify-content:center;margin:24px 0 38px;}
-    .cat-photo{width:120px;height:120px;object-fit:cover;border-radius:var(--radius-md);box-shadow:var(--shadow-sm);cursor:pointer;transition:transform .25s;border:3px solid var(--accent);}   
+    .cat-photo{width:120px;height:120px;object-fit:cover;border-radius:var(--radius-md);box-shadow:var(--shadow-sm);cursor:pointer;transition:transform .25s;border:3px solid #c6e5fd;}   
     .cat-photo:hover{transform:scale(1.06);} 
     .cat-photo.zoomed{transform:scale(2);z-index:20;}
 
