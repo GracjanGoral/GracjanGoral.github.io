@@ -4,90 +4,264 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Gracjan Góral | AI & Research</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Zen+Maru+Gothic:wght@500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Zen+Maru+Gothic:wght@500&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg-page:#f5f7fa;
-      --bg-surface:#ffffff;
-      --text-primary:#1d1d1f;
-      --text-secondary:#6e6e73;
-      --accent:#0071e3; /* consistent blue */
-      --radius-xl:28px;
-      --radius-md:16px;
-      --shadow-lg:0 16px 40px rgba(0,0,0,0.06);
-      --shadow-sm:0 2px 6px rgba(0,0,0,0.04);
+      --bg-page: #f5f5f7;
+      --bg-surface: #ffffff;
+      --text-primary: #1d1d1f;
+      --text-secondary: #6e6e73; 
+      --accent: #007aff;
+      
+      --radius-xl: 24px;
+      --radius-md: 18px; 
+      --radius-sm: 10px;
+
+      --shadow-lg: 0 16px 32px rgba(0,0,0,0.08), 0 4px 8px rgba(0,0,0,0.06);
+      --shadow-md: 0 8px 20px rgba(0,0,0,0.07);
+      --shadow-sm: 0 4px 8px rgba(0,0,0,0.06);
+      --shadow-xs: 0 2px 4px rgba(0,0,0,0.05);
     }
     *,*::before,*::after{box-sizing:border-box;}
+    html {
+      scroll-behavior: smooth;
+    }
     body{
       margin:0;
-      font-family:-apple-system,BlinkMacSystemFont,'Inter','Zen Maru Gothic',sans-serif;
-      background:var(--bg-page);
-      color:var(--text-primary);
-      -webkit-font-smoothing:antialiased;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter", "Helvetica Neue", "Arial", sans-serif;
+      background: var(--bg-page);
+      color: var(--text-primary);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      font-size: 17px; 
+      line-height: 1.47059; 
+      letter-spacing: -0.022em;
     }
-    a{color:var(--accent);text-decoration:none;position:relative;}
-    a::after{content:"";position:absolute;left:0;bottom:-1px;width:100%;height:1px;background:currentColor;opacity:.35;transition:opacity .2s;}
-    a:hover::after{opacity:.8;}
+    a{
+      color:var(--accent);
+      text-decoration: none;
+      transition: color 0.2s ease-out;
+    }
+    a:hover{
+      color: color-mix(in srgb, var(--accent) 75%, var(--text-primary));
+    }
+    a::after{ 
+      content: none; 
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter", "Helvetica Neue", "Arial", sans-serif;
+    }
 
     /* ---------------- Container ---------------- */
-    .container{max-width:980px;margin:64px auto;padding:40px 48px;background:var(--bg-surface);border-radius:var(--radius-xl);box-shadow:var(--shadow-lg);}
+    .container{
+      max-width:980px;
+      margin: clamp(40px, 10vh, 80px) auto;
+      padding: clamp(24px, 5vw, 48px) clamp(20px, 4vw, 40px);
+      background:var(--bg-surface);
+      border-radius:var(--radius-xl);
+      box-shadow:var(--shadow-lg);
+    }
 
     /* ---------------- Header ------------------ */
-    .profile-header{margin-bottom:40px;} .profile-header::after{content:"";display:block;clear:both;}
-    .profile-photo{width:180px;height:180px;object-fit:cover;border-radius:var(--radius-xl);box-shadow:var(--shadow-sm);border:3px solid #c6e5fd;float:left;margin-right:32px;margin-bottom:12px;}
-    h1{font-size:2.4rem;font-weight:700;margin:0 0 .3em;letter-spacing:-.015em;line-height:1.15;}
-    .subtitle{font-size:1.05rem;color:var(--text-secondary);}
+    .profile-header{
+      margin-bottom:clamp(40px, 8vh, 64px);
+    }
+    .profile-photo{
+      width: clamp(100px, 20vw, 150px); 
+      height: clamp(100px, 20vw, 150px);
+      object-fit:cover;
+      border-radius: 50%; 
+      box-shadow:var(--shadow-sm);
+      border: 4px solid var(--bg-surface);
+      float:left;
+      margin-right: clamp(20px, 4vw, 32px);
+      margin-bottom:clamp(16px, 2vw, 20px);
+    }
+    h1{
+      font-size: clamp(2rem, 1.6rem + 3.5vw, 2.875rem); 
+      font-weight:700; 
+      line-height:1.05;
+      letter-spacing: -0.03em; 
+      margin:0 0 .2em;
+    }
+    .subtitle{
+      font-size: clamp(0.875rem, 0.75rem + 0.8vw, 1.125rem); /* ADJUSTED: Approx 14-18pt */
+      line-height: 1.45; /* ADJUSTED: Slightly increased line-height for smaller text */
+      letter-spacing: -0.018em; /* ADJUSTED: Slightly less negative tracking */
+      color:var(--text-secondary);
+      font-weight: 400;
+    }
 
     /* ---------------- Contact icons ----------- */
-    .contact-links{display:flex;gap:24px;align-items:center;margin-top:18px;}
-    .contact-icon{width:26px;height:26px;fill:var(--text-primary);opacity:.8;transition:transform .2s,opacity .2s,fill .2s;vertical-align:middle;}
-    .contact-link:hover .contact-icon{transform:scale(1.1);opacity:1;fill:var(--accent);}
+    .contact-links{
+      display:flex;
+      gap: clamp(16px, 3.5vw, 28px);
+      align-items:center;
+      margin-top: clamp(18px, 3.5vw, 28px);
+    }
+    .contact-icon{
+      width: clamp(24px, 5vw, 28px);
+      height: clamp(24px, 5vw, 28px);
+      fill:var(--text-secondary);
+      opacity:1;
+      transition:transform .2s,opacity .2s,fill .2s;vertical-align:middle;
+    }
+    .contact-link:hover .contact-icon{transform:scale(1.1);fill:var(--accent);}
 
     /* ---------------- Typography -------------- */
-    p{font-size:1.15rem;line-height:1.75;margin:1.25em 0;}
-    h2{font-size:1.5rem;font-weight:600;margin:2.8rem 0 1.2rem;letter-spacing:-.01em;}
-    h3{font-size:1.15rem;font-weight:600;margin:1.6rem 0 .5rem;color:var(--text-primary);}
+    p{
+      font-size: clamp(1rem, 0.9rem + 0.25vw, 1.0625rem); 
+      line-height: 1.58; 
+      letter-spacing: -0.011em;
+      font-weight: 400; 
+      margin: 1.8em 0; 
+    }
+    h2{
+      font-size: clamp(1.875rem, 1.5rem + 2.8vw, 2.5rem); 
+      font-weight: 600; 
+      letter-spacing: -0.028em; 
+      line-height: 1.1;
+      text-align: center; 
+      margin: clamp(4rem, 12vh, 6rem) 0 clamp(2rem, 5vh, 2.5rem) 0;
+      color: var(--text-primary);
+    }
+    h3{
+      font-size: clamp(1.25rem, 1rem + 1.2vw, 1.625rem); 
+      font-weight: 500; 
+      letter-spacing: -0.026em;
+      line-height: 1.2;
+      margin: clamp(2rem, 4.5vw, 2.8rem) 0 .8rem; 
+      color:var(--text-primary);
+    }
 
     /* ---------------- Card component ---------- */
-    .card{background:var(--bg-surface);border-radius:var(--radius-md);padding:22px 26px 20px;box-shadow:var(--shadow-sm);margin-bottom:28px;}
-    .card .author-list{font-size:.95rem;color:var(--text-secondary);margin:6px 0 10px;}
-    .author-me{font-weight:700;color:var(--accent);background:#eaf4ff;border-radius:4px;padding:0 4px;}
-    .card.pub{border-top:6px solid #9adaff4d;}
-    .card.data{border-top:6px solid #b3d4ff4d;}
-    .card.blog{border-top:6px solid #c4dfff4d;}
+    .card{
+      background:var(--bg-surface);
+      border-radius:var(--radius-md);
+      padding: clamp(28px, 5vw, 40px); 
+      box-shadow:var(--shadow-md);
+      margin-bottom: clamp(28px, 5vw, 40px);
+      border-top: none;
+    }
+    .card .author-list{
+      font-size: clamp(0.875rem, 0.8rem + 0.25vw, 0.9375rem);
+      letter-spacing: -0.016em;
+      color:var(--text-secondary);margin:10px 0 14px;
+    }
+    .author-me{
+      font-weight:600;
+      color:var(--accent);
+      background: color-mix(in srgb, var(--accent) 10%, transparent); 
+      border-radius:var(--radius-sm);
+      padding:3px 8px;
+    }
+    .card small {
+        display: block;
+        font-size: clamp(0.8125rem, 0.75rem + 0.2vw, 0.875rem);
+        color: var(--text-secondary);
+        letter-spacing: -0.005em; 
+        margin-top: clamp(14px, 2.5vh, 18px);
+        line-height: 1.4;
+    }
+    .card.pub, .card.data, .card.blog { border-top: none; }
+
 
     /* ---------------- Cats gallery ------------ */
-    .cats-gallery{display:flex;gap:24px;flex-wrap:wrap;justify-content:center;margin:24px 0 38px;}
-    .cat-photo{width:120px;height:120px;object-fit:cover;border-radius:var(--radius-md);box-shadow:var(--shadow-sm);cursor:pointer;transition:transform .25s;border:3px solid #c6e5fd;}
-    .cat-photo:hover{transform:scale(1.06);}
+    .cats-gallery{
+      display:flex;
+      gap: clamp(16px, 3.5vw, 24px); 
+      flex-wrap:wrap;
+      justify-content:center;
+      margin: clamp(28px, 6vh, 48px) 0 clamp(40px, 10vh, 64px); 
+    }
+    .cat-photo{
+      width: clamp(80px, 18vw, 120px);
+      height: clamp(80px, 18vw, 120px);
+      object-fit:cover;
+      border-radius:var(--radius-md); 
+      box-shadow:var(--shadow-xs);
+      cursor:pointer;
+      transition:transform .25s ease-out, opacity 0.3s ease-out, box-shadow .25s ease-out;
+      border:1px solid rgba(0,0,0,0.05);
+    }
+    .cat-photo:hover{transform:scale(1.06); box-shadow: var(--shadow-sm);}
     .cat-photo.zoomed{
-      transform:scale(3); /* UPDATED */
+      transform:scale(clamp(2.2, 1.5 + 4vw, 3));
       z-index:20;
-      position: relative; /* Added for better stacking context if needed */
+      position: relative;
+      box-shadow: var(--shadow-lg);
     }
 
     /* --------------- Blockquote -------------- */
-    blockquote{margin:2.4rem 0;padding:1.2rem 1.4rem;background:#f0f4ff;border-left:4px solid var(--accent);border-radius:var(--radius-md);color:var(--text-secondary);font-style:italic;}
+    blockquote{
+      margin:clamp(2.5rem, 6vh, 4rem) auto; 
+      max-width: 75ch; 
+      padding: clamp(1.5rem, 3.5vw, 2rem) clamp(1.8rem, 4vw, 2.5rem);
+      background:transparent; 
+      border-left:4px solid var(--accent); 
+      border-radius:0; 
+      color:var(--text-secondary); 
+      font-style:normal; 
+      font-size: clamp(1.0625rem, 0.95rem + 0.3vw, 1.1875rem); 
+      line-height: 1.65;
+      letter-spacing: -0.011em;
+    }
 
-    /* -------------- Responsive --------------- */
-    @media(max-width:700px){
-      .container{padding:24px;}
-      .profile-photo{width:120px;height:120px;}
-      h1{font-size:1.8rem;}
-      h2{font-size:1.25rem;}
-      p{font-size:1rem;}
+    /* --------------- Fade on Scroll Effect (no change) -------------- */
+    .fade-on-scroll { opacity: 1; transition: opacity 0.5s ease-out; }
+    .fade-on-scroll.is-fading { opacity: 0; pointer-events: none; }
+
+    /* -------------- Responsive Overrides --------------- */
+    @media(max-width:768px){
+        h2 {
+            font-size: clamp(1.75rem, 1.4rem + 2.5vw, 2.25rem); 
+            margin: clamp(3rem, 10vh, 4.5rem) 0 clamp(1.8rem, 4vh, 2.2rem) 0;
+        }
+    }
+
+    @media(max-width:600px){
+      body { font-size: 16px; line-height: 1.5; letter-spacing: -0.019em; }
+      .container { border-radius: var(--radius-md); padding: clamp(20px, 4vw, 32px) clamp(16px, 3.5vw, 24px); }
+      .profile-header { display: flex; flex-direction: column; align-items: center; text-align: center; }
+      .profile-photo { float: none; margin-right: 0; margin-bottom: clamp(16px, 4vw, 24px); width: clamp(90px, 25vw, 120px); height: clamp(90px, 25vw, 120px); }
+      .profile-header > div { width: 100%; }
+      .contact-links { justify-content: center; }
+      h1 { font-size: clamp(1.875rem, 1.4rem + 3.5vw, 2.375rem); }
+      .subtitle { 
+        font-size: clamp(0.8125rem, 0.7rem + 1vw, 1rem); /* ADJUSTED: Approx 13-16pt */
+      }
+      p { font-size: clamp(0.9375rem, 0.85rem + 0.25vw, 1rem); line-height: 1.65; margin: 1.5em 0;}
+      h2 { font-size: clamp(1.625rem, 1.3rem + 2.2vw, 2rem); margin: clamp(3rem, 9vh, 4rem) 0 clamp(1.5rem, 3.5vh, 2rem) 0;}
+      h3 { font-size: clamp(1.1875rem, 1rem + 1vw, 1.4375rem); }
+      .card { padding: clamp(24px, 4.5vw, 32px); border-radius: var(--radius-md); }
+      .cat-photo.zoomed{ transform:scale(clamp(2, 1.2 + 5vw, 2.5)); }
+    }
+
+    @media (max-width: 390px) {
+        body { font-size: 15px; line-height: 1.53; letter-spacing: -0.016em; }
+        h1 { font-size: clamp(1.625rem, 1.3rem + 3vw, 2.125rem); }
+        .subtitle {
+             font-size: clamp(0.75rem, 0.65rem + 0.8vw, 0.9375rem); /* ADJUSTED: Approx 12-15pt */
+        }
+        p { font-size: clamp(0.875rem, 0.8rem + 0.25vw, 0.9375rem); line-height: 1.7;}
+        h2 { font-size: clamp(1.5rem, 1.2rem + 1.8vw, 1.75rem); }
+        h3 { font-size: clamp(1.125rem, 0.95rem + 1vw, 1.3125rem); }
+        .profile-photo { width: clamp(80px, 22vw, 100px); height: clamp(80px, 22vw, 100px); }
+        .card { padding: clamp(20px, 4vw, 28px); border-radius: var(--radius-sm); }
+        .cat-photo { width: clamp(65px, 17vw, 80px); height: clamp(65px, 17vw, 80px); border-radius: var(--radius-sm); }
+        .contact-icon{ width: clamp(20px, 4.5vw, 24px); height: clamp(20px, 4.5vw, 24px); }
+        blockquote { padding: clamp(1.2rem, 3vw, 1.5rem); font-size: clamp(1rem, 0.9rem + 0.25vw, 1.125rem); }
     }
   </style>
 </head>
 <body>
-  <div style="pointer-events:none;position:fixed;inset:0;width:100%;height:100%;background:url('https://grainy-gradients.vercel.app/noise.svg');mix-blend-mode:overlay;opacity:.04;z-index:0"></div>
-
   <div class="container">
-    <div class="profile-header">
+    <div class="profile-header fade-on-scroll">
       <img src="gracjan_goral.jpg" alt="Gracjan Góral" class="profile-photo">
       <div>
-        <h2>Knows everything… except the  /ˈlæŋ.ɡwɪdʒ/</h2>
-        <div class="subtitle">PhD candidate · University of Warsaw · Artificial Intelligence · Mathematics</div>
+        <h1>Gracjan Góral</h1>
+        <div class="subtitle">Knows everything… except the /ˈlæŋ.ɡwɪdʒ/ <br> PhD candidate · University of Warsaw · Artificial Intelligence · Mathematics</div>
         <div class="contact-links">
           <a class="contact-link" href="https://x.com/gracjan_goral" target="_blank" title="X (Twitter)">
             <svg class="contact-icon" viewBox="0 0 32 32"><path d="M19.89 14.18 28.77 4.5h-2.18l-7.62 8.77-6.07-8.77H3.41l9.31 13.42-9.31 10.59h2.18l8-9.11 6.32 9.11h9.49zm-2.76 3.15-.92-1.33-7.38-10.67h2.86l5.92 8.56.92 1.33 7.62 11.06h-2.86z"></path></svg>
@@ -111,10 +285,10 @@
       </div>
     </div>
 
-    <p>Former math student, now exploring the boundaries between mathematics, artificial intelligence, and language. My work focuses on language models and their ability to reason, reflect, and sometimes hallucinate.</p>
-    <p>My research is rarely done alone – I share my home office with five cats ("the demons"), who are convinced every keyboard was made for them.</p>
+    <p class="fade-on-scroll">Former math student, now exploring the boundaries between mathematics, artificial intelligence, and language. My work focuses on language models and their ability to reason, reflect, and sometimes hallucinate.</p>
+    <p class="fade-on-scroll">My research is rarely done alone – I share my home office with five cats ("the demons"), who are convinced every keyboard was made for them.</p>
 
-    <div class="cats-gallery">
+    <div class="cats-gallery fade-on-scroll">
       <img src="cat1.jpg" alt="Cat 1" class="cat-photo">
       <img src="cat2.jpg" alt="Cat 2" class="cat-photo">
       <img src="cat3.jpg" alt="Cat 3" class="cat-photo">
@@ -122,73 +296,79 @@
       <img src="cat5.jpg" alt="Cat 5" class="cat-photo">
     </div>
 
-    <p>I am fascinated by the intersection of psychology and AI. In particular, I apply psychological frameworks and experimental paradigms to study, challenge, and sometimes surprise artificial models.</p>
+    <p class="fade-on-scroll">I am fascinated by the intersection of psychology and AI. In particular, I apply psychological frameworks and experimental paradigms to study, challenge, and sometimes surprise artificial models.</p>
 
-    <h2>Publications</h2>
-    <h3>LLMs</h3>
-    <div class="card pub">
+    <blockquote class="fade-on-scroll">
+        My approach blends rigorous mathematical frameworks with the empirical exploration of AI's cognitive abilities, always seeking to uncover the underlying principles of intelligence, both natural and artificial.
+    </blockquote>
+
+    <h2 class="fade-on-scroll">Publications</h2>
+    <h3 class="fade-on-scroll">LLMs</h3>
+    <div class="card pub fade-on-scroll">
       <b>Wait, That’s Not an Option: LLMs Robustness with In-correct Multiple-Choice Options</b><br>
       <div class="author-list"><span class="author-me">Gracjan Góral</span>, Emilia Wiśnios, Piotr Sankowski, Paweł Budzianowski</div>
       <i>Explores LLMs' threshold between following instruction and accuracy.</i><br>
       <a href="https://arxiv.org/abs/2409.00113" target="_blank">arXiv</a> · <a href="https://sites.google.com/view/reflective-jugment/strona-główna" target="_blank">Project Website</a><br>
-      <small><i>Accepted at The 63rd Annual Meeting of the Association for Computational Linguistics</i></small>
+      <small>Accepted at The 63rd Annual Meeting of the Association for Computational Linguistics</small>
     </div>
 
-    <h3>VLMs</h3>
-    <div class="card pub">
+    <h3 class="fade-on-scroll">VLMs</h3>
+    <div class="card pub fade-on-scroll">
       <b>Seeing Through Their Eyes: Evaluating Visual Perspective Taking in Vision Language Models</b><br>
       <div class="author-list"><span class="author-me">Gracjan Góral</span>, Alicja Ziarko, Michal Nauman, Maciej Wołczyk</div>
       <i>Investigates VLMs' perspective-taking abilities, benchmarking 12 models.</i><br>
       <a href="https://arxiv.org/abs/2409.12969" target="_blank">arXiv</a> · <a href="https://sites.google.com/view/perspective-taking/strona-główna" target="_blank">Project Website</a><br>
-      <small><i>Accepted at Workshop on Responsibly Building the Next Generation of Multimodal Foundational Models, NeurIPS 2024</i></small>
+      <small>Accepted at Workshop on Responsibly Building the Next Generation of Multimodal Foundational Models, NeurIPS 2024</small>
     </div>
 
-    <div class="card pub">
+    <div class="card pub fade-on-scroll">
       <b>Beyond Recognition: Evaluating Visual Perspective Taking in Vision Language Models</b><br>
       <div class="author-list"><span class="author-me">Gracjan Góral</span>, Alicja Ziarko, Piotr Miłoś, Michał Nauman, Maciej Wołczyk, Michał Kosiński</div>
       <i>Evaluates VLMs’ performance on controlled perspective-taking tasks, finding strong scene understanding but lower accuracy on spatial reasoning and VPT.</i><br>
       <a href="https://arxiv.org/abs/2505.03821" target="_blank">arXiv</a> · Project Website: <i>Coming soon</i><br>
-      <small><i>Submitted</i></small>
+      <small>Submitted</small>
     </div>
 
-    <h3>Planning</h3>
-    <div class="card pub">
+    <h3 class="fade-on-scroll">Planning</h3>
+    <div class="card pub fade-on-scroll">
       <b>What Matters in Hierarchical Search for Combinatorial Reasoning Problems?</b><br>
       <div class="author-list">Michał Zawalski, <span class="author-me">Gracjan Góral</span>, Michał Tyrolski, Emilia Wiśnios, Franciszek Budrowski, Marek Cygan, Łukasz Kuciński, Piotr Miłoś</div>
       <i>Analyzes subgoal-planning effectiveness in combinatorial reasoning problems.</i><br>
       <a href="https://arxiv.org/abs/2406.03361" target="_blank">arXiv</a> · Project Website: <i>Coming soon</i><br>
-      <small><i>Accepted at Generative Models for Decision Making Workshop, ICLR 2024</i></small>
+      <small>Accepted at Generative Models for Decision Making Workshop, ICLR 2024</small>
     </div>
 
-    <h2>Datasets</h2>
-    <div class="card data">
+    <h2 class="fade-on-scroll">Datasets</h2>
+    <div class="card data fade-on-scroll">
       <b><a href="https://huggingface.co/datasets/Gracjan/Isle" target="_blank">The Isle (I spy with my little eye)</a></b><br>
       <span>The Isle dataset enables research on visual perspective taking, scene understanding, and spatial reasoning, with over 4.5k downloads.</span>
     </div>
-    <div class="card data">
+    <div class="card data fade-on-scroll">
       <b><a href="https://huggingface.co/datasets/Gracjan/BlenderGaze" target="_blank">BlenderGaze</a></b><br>
       <span>The BlenderGaze expands the Isle dataset in scale to further investigate visual perspective taking in VLMs.</span>
     </div>
 
-    <h2>Blog Posts</h2>
-    <div class="card blog">
+    <h2 class="fade-on-scroll">Blog Posts</h2>
+    <div class="card blog fade-on-scroll">
       <b><a href="https://medium.com/p/3aecd6180fa5" target="_blank">Building Trust With Invisible Robots</a></b><br>
       <div class="author-list"><span class="author-me">Gracjan Góral</span></div>
       <i>From domestic humanoids to the open-source.</i>
     </div>
-  </div> <script>
+  </div>
+
+  <script>
     document.addEventListener('DOMContentLoaded', () => {
+      // --- Cat photo zoom logic ---
       const catPhotos = document.querySelectorAll('.cat-photo');
       let currentlyZoomed = null;
 
       catPhotos.forEach(photo => {
         photo.addEventListener('click', function(event) {
-          event.stopPropagation(); // Prevent click from immediately bubbling to document
+          event.stopPropagation();
           if (this.classList.contains('zoomed')) {
             this.classList.remove('zoomed');
             currentlyZoomed = null;
           } else {
-            // If another image is zoomed, unzoom it first
             if (currentlyZoomed) {
               currentlyZoomed.classList.remove('zoomed');
             }
@@ -198,13 +378,40 @@
         });
       });
 
-      // Click anywhere else to unzoom
       document.addEventListener('click', function() {
         if (currentlyZoomed) {
           currentlyZoomed.classList.remove('zoomed');
           currentlyZoomed = null;
         }
       });
+
+      // --- Intersection Observer for fade-on-scroll ---
+      const elementsToFade = document.querySelectorAll('.fade-on-scroll');
+
+      if ('IntersectionObserver' in window) {
+        const observerOptions = {
+          root: null,
+          rootMargin: '0px 0px -10% 0px',
+          threshold: 0 
+        };
+        
+        const observerCallback = (entries, observer) => {
+          entries.forEach(entry => {
+            if (!entry.isIntersecting && entry.boundingClientRect.bottom < 0) {
+              entry.target.classList.add('is-fading');
+            } else if (entry.isIntersecting || entry.boundingClientRect.bottom >= 0) {
+              entry.target.classList.remove('is-fading');
+            }
+          });
+        };
+
+        const scrollObserver = new IntersectionObserver(observerCallback, observerOptions);
+        elementsToFade.forEach(el => {
+          scrollObserver.observe(el);
+        });
+      } else {
+        console.log("IntersectionObserver not supported, fade-on-scroll effect will not be active.");
+      }
     });
   </script>
 
