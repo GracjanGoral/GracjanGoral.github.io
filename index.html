@@ -10,11 +10,11 @@
       --bg-page: #f5f5f7;
       --bg-surface: #ffffff;
       --text-primary: #1d1d1f;
-      --text-secondary: #6e6e73; 
+      --text-secondary: #6e6e73;
       --accent: #007aff;
-      
+
       --radius-xl: 24px;
-      --radius-md: 18px; 
+      --radius-md: 18px;
       --radius-sm: 10px;
 
       --shadow-lg: 0 16px 32px rgba(0,0,0,0.08), 0 4px 8px rgba(0,0,0,0.06);
@@ -33,8 +33,8 @@
       color: var(--text-primary);
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
-      font-size: 17px; 
-      line-height: 1.47059; 
+      font-size: 17px;
+      line-height: 1.47059;
       letter-spacing: -0.022em;
     }
     a{
@@ -45,8 +45,8 @@
     a:hover{
       color: color-mix(in srgb, var(--accent) 75%, var(--text-primary));
     }
-    a::after{ 
-      content: none; 
+    a::after{
+      content: none;
     }
 
     h1, h2, h3, h4, h5, h6 {
@@ -68,10 +68,10 @@
       margin-bottom:clamp(40px, 8vh, 64px);
     }
     .profile-photo{
-      width: clamp(100px, 20vw, 150px); 
+      width: clamp(100px, 20vw, 150px);
       height: clamp(100px, 20vw, 150px);
       object-fit:cover;
-      border-radius: 50%; 
+      border-radius: 50%;
       box-shadow:var(--shadow-sm);
       border: 4px solid var(--bg-surface);
       float:left;
@@ -79,10 +79,10 @@
       margin-bottom:clamp(16px, 2vw, 20px);
     }
     h1{
-      font-size: clamp(2rem, 1.6rem + 3.5vw, 2.875rem); 
-      font-weight:700; 
+      font-size: clamp(2rem, 1.6rem + 3.5vw, 2.875rem);
+      font-weight:700;
       line-height:1.05;
-      letter-spacing: -0.03em; 
+      letter-spacing: -0.03em;
       margin:0 0 .2em;
     }
     .subtitle{
@@ -111,27 +111,27 @@
 
     /* ---------------- Typography -------------- */
     p{
-      font-size: clamp(1rem, 0.9rem + 0.25vw, 1.0625rem); 
-      line-height: 1.58; 
+      font-size: clamp(1rem, 0.9rem + 0.25vw, 1.0625rem);
+      line-height: 1.58;
       letter-spacing: -0.011em;
-      font-weight: 400; 
-      margin: 1.8em 0; 
+      font-weight: 400;
+      margin: 1.8em 0;
     }
     h2{
-      font-size: clamp(1.875rem, 1.5rem + 2.8vw, 2.5rem); 
-      font-weight: 600; 
-      letter-spacing: -0.028em; 
+      font-size: clamp(1.875rem, 1.5rem + 2.8vw, 2.5rem);
+      font-weight: 600;
+      letter-spacing: -0.028em;
       line-height: 1.1;
-      text-align: center; 
+      text-align: center;
       margin: clamp(4rem, 12vh, 6rem) 0 clamp(2rem, 5vh, 2.5rem) 0;
       color: var(--text-primary);
     }
     h3{
-      font-size: clamp(1.25rem, 1rem + 1.2vw, 1.625rem); 
-      font-weight: 500; 
+      font-size: clamp(1.25rem, 1rem + 1.2vw, 1.625rem);
+      font-weight: 500;
       letter-spacing: -0.026em;
       line-height: 1.2;
-      margin: clamp(2rem, 4.5vw, 2.8rem) 0 .8rem; 
+      margin: clamp(2rem, 4.5vw, 2.8rem) 0 .8rem;
       color:var(--text-primary);
     }
 
@@ -139,7 +139,7 @@
     .card{
       background:var(--bg-surface);
       border-radius:var(--radius-md);
-      padding: clamp(28px, 5vw, 40px); 
+      padding: clamp(28px, 5vw, 40px);
       box-shadow:var(--shadow-md);
       margin-bottom: clamp(28px, 5vw, 40px);
       border-top: none;
@@ -152,7 +152,7 @@
     .author-me{
       font-weight:600;
       color:var(--accent);
-      background: color-mix(in srgb, var(--accent) 10%, transparent); 
+      background: color-mix(in srgb, var(--accent) 10%, transparent);
       border-radius:var(--radius-sm);
       padding:3px 8px;
     }
@@ -160,7 +160,7 @@
         display: block;
         font-size: clamp(0.8125rem, 0.75rem + 0.2vw, 0.875rem);
         color: var(--text-secondary);
-        letter-spacing: -0.005em; 
+        letter-spacing: -0.005em;
         margin-top: clamp(14px, 2.5vh, 18px);
         line-height: 1.4;
     }
@@ -170,16 +170,16 @@
     /* ---------------- Cats gallery ------------ */
     .cats-gallery{
       display:flex;
-      gap: clamp(16px, 3.5vw, 24px); 
+      gap: clamp(16px, 3.5vw, 24px);
       flex-wrap:wrap;
       justify-content:center;
-      margin: clamp(28px, 6vh, 48px) 0 clamp(40px, 10vh, 64px); 
+      margin: clamp(28px, 6vh, 48px) 0 clamp(40px, 10vh, 64px);
     }
     .cat-photo{
       width: clamp(80px, 18vw, 120px);
       height: clamp(80px, 18vw, 120px);
       object-fit:cover;
-      border-radius:var(--radius-md); 
+      border-radius:var(--radius-md);
       box-shadow:var(--shadow-xs);
       cursor:pointer;
       transition:transform .25s ease-out, opacity 0.3s ease-out, box-shadow .25s ease-out;
@@ -195,27 +195,40 @@
 
     /* --------------- Blockquote -------------- */
     blockquote{
-      margin:clamp(2.5rem, 6vh, 4rem) auto; 
-      max-width: 75ch; 
+      margin:clamp(2.5rem, 6vh, 4rem) auto;
+      max-width: 75ch;
       padding: clamp(1.5rem, 3.5vw, 2rem) clamp(1.8rem, 4vw, 2.5rem);
-      background:transparent; 
-      border-left:4px solid var(--accent); 
-      border-radius:0; 
-      color:var(--text-secondary); 
-      font-style:normal; 
-      font-size: clamp(1.0625rem, 0.95rem + 0.3vw, 1.1875rem); 
+      background:transparent;
+      border-left:4px solid var(--accent);
+      border-radius:0;
+      color:var(--text-secondary);
+      font-style:normal;
+      font-size: clamp(1.0625rem, 0.95rem + 0.3vw, 1.1875rem);
       line-height: 1.65;
       letter-spacing: -0.011em;
     }
 
-    /* --------------- Fade on Scroll Effect (no change) -------------- */
-    .fade-on-scroll { opacity: 1; transition: opacity 0.5s ease-out; }
-    .fade-on-scroll.is-fading { opacity: 0; pointer-events: none; }
+    /* --------------- Diffusion Scroll Effect -------------- */
+    .scroll-animate {
+      opacity: 0;
+      transform: translateY(25px) scale(0.98); /* Start slightly down and smaller */
+      filter: blur(3px); /* Start slightly blurred */
+      transition: opacity 0.65s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                  transform 0.65s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                  filter 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      will-change: opacity, transform, filter; /* Optimize for animations */
+    }
+
+    .scroll-animate.is-visible {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      filter: blur(0px);
+    }
 
     /* -------------- Responsive Overrides --------------- */
     @media(max-width:768px){
         h2 {
-            font-size: clamp(1.75rem, 1.4rem + 2.5vw, 2.25rem); 
+            font-size: clamp(1.75rem, 1.4rem + 2.5vw, 2.25rem);
             margin: clamp(3rem, 10vh, 4.5rem) 0 clamp(1.8rem, 4vh, 2.2rem) 0;
         }
     }
@@ -228,7 +241,7 @@
       .profile-header > div { width: 100%; }
       .contact-links { justify-content: center; }
       h1 { font-size: clamp(1.875rem, 1.4rem + 3.5vw, 2.375rem); }
-      .subtitle { 
+      .subtitle {
         font-size: clamp(0.8125rem, 0.7rem + 1vw, 1rem); /* ADJUSTED: Approx 13-16pt */
       }
       p { font-size: clamp(0.9375rem, 0.85rem + 0.25vw, 1rem); line-height: 1.65; margin: 1.5em 0;}
@@ -257,7 +270,7 @@
 </head>
 <body>
   <div class="container">
-    <div class="profile-header fade-on-scroll">
+    <div class="profile-header scroll-animate">
       <img src="gracjan_goral.jpg" alt="Gracjan Góral" class="profile-photo">
       <div>
         <h1>Gracjan Góral</h1>
@@ -285,10 +298,10 @@
       </div>
     </div>
 
-    <p class="fade-on-scroll">Former math student, now exploring the boundaries between mathematics, artificial intelligence, and language. My work focuses on language models and their ability to reason, reflect, and sometimes hallucinate.</p>
-    <p class="fade-on-scroll">My research is rarely done alone – I share my home office with five cats ("the demons"), who are convinced every keyboard was made for them.</p>
+    <p class="scroll-animate">Former math student, now exploring the boundaries between mathematics, artificial intelligence, and language. My work focuses on language models and their ability to reason, reflect, and sometimes hallucinate.</p>
+    <p class="scroll-animate">My research is rarely done alone – I share my home office with five cats ("the demons"), who are convinced every keyboard was made for them.</p>
 
-    <div class="cats-gallery fade-on-scroll">
+    <div class="cats-gallery scroll-animate">
       <img src="cat1.jpg" alt="Cat 1" class="cat-photo">
       <img src="cat2.jpg" alt="Cat 2" class="cat-photo">
       <img src="cat3.jpg" alt="Cat 3" class="cat-photo">
@@ -296,13 +309,13 @@
       <img src="cat5.jpg" alt="Cat 5" class="cat-photo">
     </div>
 
-    <blockquote class="fade-on-scroll">
-       I am fascinated by the intersection of psychology and AI. In particular, I apply psychological frameworks and experimental paradigms to study, challenge, and sometimes surprise artificial models.
+    <blockquote class="scroll-animate">
+        I am fascinated by the intersection of psychology and AI. In particular, I apply psychological frameworks and experimental paradigms to study, challenge, and sometimes surprise artificial models.
     </blockquote>
 
-    <h2 class="fade-on-scroll">Publications</h2>
-    <h3 class="fade-on-scroll">LLMs</h3>
-    <div class="card pub fade-on-scroll">
+    <h2 class="scroll-animate">Publications</h2>
+    <h3 class="scroll-animate">LLMs</h3>
+    <div class="card pub scroll-animate">
       <b>Wait, That’s Not an Option: LLMs Robustness with In-correct Multiple-Choice Options</b><br>
       <div class="author-list"><span class="author-me">Gracjan Góral</span>, Emilia Wiśnios, Piotr Sankowski, Paweł Budzianowski</div>
       <i>Explores LLMs' threshold between following instruction and accuracy.</i><br>
@@ -310,8 +323,8 @@
       <small>Accepted at The 63rd Annual Meeting of the Association for Computational Linguistics</small>
     </div>
 
-    <h3 class="fade-on-scroll">VLMs</h3>
-    <div class="card pub fade-on-scroll">
+    <h3 class="scroll-animate">VLMs</h3>
+    <div class="card pub scroll-animate">
       <b>Seeing Through Their Eyes: Evaluating Visual Perspective Taking in Vision Language Models</b><br>
       <div class="author-list"><span class="author-me">Gracjan Góral</span>, Alicja Ziarko, Michal Nauman, Maciej Wołczyk</div>
       <i>Investigates VLMs' perspective-taking abilities, benchmarking 12 models.</i><br>
@@ -319,7 +332,7 @@
       <small>Accepted at Workshop on Responsibly Building the Next Generation of Multimodal Foundational Models, NeurIPS 2024</small>
     </div>
 
-    <div class="card pub fade-on-scroll">
+    <div class="card pub scroll-animate">
       <b>Beyond Recognition: Evaluating Visual Perspective Taking in Vision Language Models</b><br>
       <div class="author-list"><span class="author-me">Gracjan Góral</span>, Alicja Ziarko, Piotr Miłoś, Michał Nauman, Maciej Wołczyk, Michał Kosiński</div>
       <i>Evaluates VLMs’ performance on controlled perspective-taking tasks, finding strong scene understanding but lower accuracy on spatial reasoning and VPT.</i><br>
@@ -327,8 +340,8 @@
       <small>Submitted</small>
     </div>
 
-    <h3 class="fade-on-scroll">Planning</h3>
-    <div class="card pub fade-on-scroll">
+    <h3 class="scroll-animate">Planning</h3>
+    <div class="card pub scroll-animate">
       <b>What Matters in Hierarchical Search for Combinatorial Reasoning Problems?</b><br>
       <div class="author-list">Michał Zawalski, <span class="author-me">Gracjan Góral</span>, Michał Tyrolski, Emilia Wiśnios, Franciszek Budrowski, Marek Cygan, Łukasz Kuciński, Piotr Miłoś</div>
       <i>Analyzes subgoal-planning effectiveness in combinatorial reasoning problems.</i><br>
@@ -336,18 +349,18 @@
       <small>Accepted at Generative Models for Decision Making Workshop, ICLR 2024</small>
     </div>
 
-    <h2 class="fade-on-scroll">Datasets</h2>
-    <div class="card data fade-on-scroll">
+    <h2 class="scroll-animate">Datasets</h2>
+    <div class="card data scroll-animate">
       <b><a href="https://huggingface.co/datasets/Gracjan/Isle" target="_blank">The Isle (I spy with my little eye)</a></b><br>
       <span>The Isle dataset enables research on visual perspective taking, scene understanding, and spatial reasoning, with over 4.5k downloads.</span>
     </div>
-    <div class="card data fade-on-scroll">
+    <div class="card data scroll-animate">
       <b><a href="https://huggingface.co/datasets/Gracjan/BlenderGaze" target="_blank">BlenderGaze</a></b><br>
       <span>The BlenderGaze expands the Isle dataset in scale to further investigate visual perspective taking in VLMs.</span>
     </div>
 
-    <h2 class="fade-on-scroll">Blog Posts</h2>
-    <div class="card blog fade-on-scroll">
+    <h2 class="scroll-animate">Blog Posts</h2>
+    <div class="card blog scroll-animate">
       <b><a href="https://medium.com/p/3aecd6180fa5" target="_blank">Building Trust With Invisible Robots</a></b><br>
       <div class="author-list"><span class="author-me">Gracjan Góral</span></div>
       <i>From domestic humanoids to the open-source.</i>
@@ -383,32 +396,35 @@
         }
       });
 
-      // --- Intersection Observer for fade-on-scroll ---
-      const elementsToFade = document.querySelectorAll('.fade-on-scroll');
+      // --- Intersection Observer for scroll animation ---
+      const elementsToAnimate = document.querySelectorAll('.scroll-animate');
 
       if ('IntersectionObserver' in window) {
         const observerOptions = {
-          root: null,
-          rootMargin: '0px 0px -10% 0px',
-          threshold: 0 
+          root: null, // relative to document viewport
+          rootMargin: '0px 0px -10% 0px', // viewport bottom offset by -10% (triggers a bit later when scrolling down)
+          threshold: 0 // triggers as soon as one pixel enters the adjusted rootMargin box
         };
-        
+
         const observerCallback = (entries, observer) => {
           entries.forEach(entry => {
-            if (!entry.isIntersecting && entry.boundingClientRect.bottom < 0) {
-              entry.target.classList.add('is-fading');
-            } else if (entry.isIntersecting || entry.boundingClientRect.bottom >= 0) {
-              entry.target.classList.remove('is-fading');
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+            } else {
+              // Optional: Remove class when element leaves viewport to re-animate if scrolled back
+              entry.target.classList.remove('is-visible');
             }
           });
         };
 
         const scrollObserver = new IntersectionObserver(observerCallback, observerOptions);
-        elementsToFade.forEach(el => {
+        elementsToAnimate.forEach(el => {
           scrollObserver.observe(el);
         });
       } else {
-        console.log("IntersectionObserver not supported, fade-on-scroll effect will not be active.");
+        // Fallback for browsers that don't support IntersectionObserver
+        console.log("IntersectionObserver not supported, scroll animation effect will not be active. Making elements visible.");
+        elementsToAnimate.forEach(el => el.classList.add('is-visible'));
       }
     });
   </script>
